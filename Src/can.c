@@ -47,6 +47,8 @@ static void MX_CAN2_Config(void){
     Error_Handler();
   }
 }
+
+
 /**
   ******************************************************************************
   *  静态函数 My_CAN_Filter_Config
@@ -195,8 +197,13 @@ static void HAL_CAN_MspDeInit(CAN_HandleTypeDef* hcan)
   }
 
 }
-
-static void My_CAN_Init(){
+/**
+  ******************************************************************************
+  *  API接口函数 My_CAN_Init
+  *  功能：初始化 CAB
+  ******************************************************************************
+  */
+void My_CAN_Init(){
     MX_CAN1_Config();
     MX_CAN2_Config();
     My_CAN_Filter_Config();
@@ -205,16 +212,49 @@ static void My_CAN_Init(){
     HAL_CAN_MspDeInit(&hcan1);
     HAL_CAN_MspDeInit(&hcan2);
 }
+
+
 /**
   ******************************************************************************
   *  API接口函数 Set_Motor_Current
   *  功能：设置电机的电流值
   ******************************************************************************
   */
-void Set_Motor_Current(CAN_HandleTypeDef* hcan){
-    My_CAN_Init();
+void Set_Motor_Current(CAN_TxHeaderTypeDef* txcan){
+    ;
 }
 
-void Get_Motor_Info(CAN_HandleTypeDef* hcan, Motor_Info* info){
-    ;
+
+/**
+  ******************************************************************************
+  *  API接口函数 Get_Motor_Info
+  *  功能：获取电机的反馈信息，包括：
+  *      转子机械角度大小
+  *      转子转速大小
+  *      实际转矩电流值
+  *      电机温度
+  ******************************************************************************
+  */
+void Get_Motor_Info(CAN_RxHeaderTypeDef* rxcan, Motor_Info* info){
+    uint8_t data[8];
+    
+    switch(rxcan->StdId){
+        case M3508_Motor1_ID:
+        case M3508_Motor2_ID:
+        case M3508_Motor3_ID:
+        case M3508_Motor4_ID:
+        {
+            rxcan->IDE = CAN_ID_STD;
+            rxcan->RTR = CAN_RTR_DATA;
+            rxcan->DLC = 8;
+        }
+        break;
+    }
+    
+    HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, rxcan, data);
+    
+    info->angle = data[0] << 8 | data[1];
+    info->speed = data[2] << 8 | data[3];
+    info->current = data[4] << 8 | data[5];
+    info->temperature = data[6];
 }

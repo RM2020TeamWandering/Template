@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  11:34:37
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  21:42:39
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -8,7 +8,7 @@
 #    Map file     =
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\List\RM2020_Wandering.map
 #    Command line =
-#        -f C:\Users\lenovo\AppData\Local\Temp\EWEF0A.tmp
+#        -f C:\Users\lenovo\AppData\Local\Temp\EW9778.tmp
 #        (D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\can.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\cmsis_os.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\croutine.o
@@ -250,12 +250,13 @@ initialize by copy { rw };
   .bss               zero     0x2000'3e88   0x1c4  main.o [1]
   .bss               zero     0x2000'404c    0x9c  tasks.o [1]
   .bss               zero     0x2000'40e8    0x8c  tasks.o [1]
-  .bss               zero     0x2000'4174    0x78  can.o [1]
-  .bss               zero     0x2000'41ec    0x60  main.o [1]
-  .bss               zero     0x2000'424c    0x60  main.o [1]
-  .bss               zero     0x2000'42ac    0x60  main.o [1]
-  .bss               zero     0x2000'430c    0x60  main.o [1]
-  .bss               zero     0x2000'436c    0x40  stm32f4xx_hal_timebase_tim.o [1]
+  .bss               zero     0x2000'4174    0x60  main.o [1]
+  .bss               zero     0x2000'41d4    0x60  main.o [1]
+  .bss               zero     0x2000'4234    0x60  main.o [1]
+  .bss               zero     0x2000'4294    0x60  main.o [1]
+  .bss               zero     0x2000'42f4    0x50  can.o [1]
+  .bss               zero     0x2000'4344    0x40  stm32f4xx_hal_timebase_tim.o [1]
+  .bss               zero     0x2000'4384    0x28  can.o [1]
                             - 0x2000'43ac  0x4390
 
 "P2", part 3 of 3:                          0x400
@@ -489,14 +490,14 @@ _exit                    0x800'2ee5          Code  Gb  cexit.o [4]
 _main                    0x800'2ed7          Code  Gb  cmain.o [4]
 defaultTaskHandle       0x2000'4048     0x4  Data  Gb  main.o [1]
 exit                     0x800'2edf     0x4  Code  Gb  exit.o [2]
-fcan                    0x2000'41c4    0x28  Data  Gb  can.o [1]
-hcan1                   0x2000'4174    0x28  Data  Gb  can.o [1]
-hcan2                   0x2000'419c    0x28  Data  Gb  can.o [1]
-hdma_usart1_rx          0x2000'41ec    0x60  Data  Gb  main.o [1]
-hdma_usart2_rx          0x2000'424c    0x60  Data  Gb  main.o [1]
-hdma_usart3_rx          0x2000'42ac    0x60  Data  Gb  main.o [1]
-hdma_usart6_rx          0x2000'430c    0x60  Data  Gb  main.o [1]
-htim1                   0x2000'436c    0x40  Data  Gb  stm32f4xx_hal_timebase_tim.o [1]
+fcan                    0x2000'431c    0x28  Data  Gb  can.o [1]
+hcan1                   0x2000'4384    0x28  Data  Gb  can.o [1]
+hcan2                   0x2000'42f4    0x28  Data  Gb  can.o [1]
+hdma_usart1_rx          0x2000'4174    0x60  Data  Gb  main.o [1]
+hdma_usart2_rx          0x2000'41d4    0x60  Data  Gb  main.o [1]
+hdma_usart3_rx          0x2000'4234    0x60  Data  Gb  main.o [1]
+hdma_usart6_rx          0x2000'4294    0x60  Data  Gb  main.o [1]
+htim1                   0x2000'4344    0x40  Data  Gb  stm32f4xx_hal_timebase_tim.o [1]
 htim3                   0x2000'3f88    0x40  Data  Gb  main.o [1]
 htim4                   0x2000'3fc8    0x40  Data  Gb  main.o [1]
 htim5                   0x2000'4008    0x40  Data  Gb  main.o [1]

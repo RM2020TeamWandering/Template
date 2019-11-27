@@ -19,23 +19,15 @@ typedef enum{
 /***电机反馈参数结构体***/
 #define FILTER_BUF_LEN 5
 typedef struct{
-	int16_t	 	speed_rpm;
-    int16_t  	real_current;
-    int16_t  	given_current;
-    uint8_t  	hall;
-	uint16_t 	angle;				//abs angle range:[0,8191]
-	uint16_t 	last_angle;	//abs angle range:[0,8191]
-	uint16_t	offset_angle;
-	int32_t		round_cnt;
-	int32_t		total_angle;
-	uint8_t		buf_idx;
-	uint16_t	angle_buf[FILTER_BUF_LEN];
-	uint16_t	fited_angle;
-	uint32_t	msg_cnt;
+	uint16_t angle;
+    uint16_t speed;
+    uint16_t current;
+    uint8_t  temperature;
 }Motor_Info;
 
 /***API接口***/
-extern void Set_Motor_Current(CAN_HandleTypeDef* hcan);                        //设置电机电流值
-extern void Get_Motor_Info(CAN_HandleTypeDef* hcan, Motor_Info* info);         //获取电机反馈信息
+extern void My_CAN_Init();                                                     //初始化CAN
+extern void Set_Motor_Current(CAN_TxHeaderTypeDef* txcan);                     //设置电机电流值
+extern void Get_Motor_Info(CAN_RxHeaderTypeDef* rxcan, Motor_Info* info);      //获取电机反馈信息
 
 #endif
