@@ -7,7 +7,7 @@
 #ifndef __CAN_H
 #define __CAN_H
 
-extern void CAN_RxMessage();              //接收报文
-extern uint32_t CAN_TxMessage();          //发送报文
+extern uint32_t CAN_RxMessage();              //接收报文
+extern void CAN_TxMessage();                  //发送报文
 
 #endif

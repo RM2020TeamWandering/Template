@@ -1071,6 +1071,9 @@
         <group>
             <name>User</name>
             <file>
+                <name>$PROJ_DIR$\..\Src\can.c</name>
+            </file>
+            <file>
                 <name>$PROJ_DIR$\..\Src\freertos.c</name>
             </file>
             <file>

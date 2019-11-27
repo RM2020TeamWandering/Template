@@ -20,6 +20,7 @@ rule browsedata
 
 
 #Build steps
+build can.pbi : index can.xcl
 build freertos.pbi : index freertos.xcl
 build main.pbi : index main.xcl
 build stm32f4xx_hal_msp.pbi : index stm32f4xx_hal_msp.xcl
@@ -53,12 +54,12 @@ build queue.pbi : index queue.xcl
 build stream_buffer.pbi : index stream_buffer.xcl
 build tasks.pbi : index tasks.xcl
 build timers.pbi : index timers.xcl
-build RM2020_Wandering_part0.pbi : link freertos.pbi main.pbi stm32f4xx_hal_msp.pbi stm32f4xx_hal_timebase_tim.pbi stm32f4xx_it.pbi system_stm32f4xx.pbi
-build RM2020_Wandering_part1.pbi : link stm32f4xx_hal.pbi stm32f4xx_hal_can.pbi stm32f4xx_hal_cortex.pbi stm32f4xx_hal_dma.pbi stm32f4xx_hal_dma_ex.pbi stm32f4xx_hal_exti.pbi
-build RM2020_Wandering_part2.pbi : link stm32f4xx_hal_flash.pbi stm32f4xx_hal_flash_ex.pbi stm32f4xx_hal_flash_ramfunc.pbi stm32f4xx_hal_gpio.pbi stm32f4xx_hal_pwr.pbi stm32f4xx_hal_pwr_ex.pbi
-build RM2020_Wandering_part3.pbi : link stm32f4xx_hal_rcc.pbi stm32f4xx_hal_rcc_ex.pbi stm32f4xx_hal_tim.pbi stm32f4xx_hal_tim_ex.pbi stm32f4xx_hal_uart.pbi cmsis_os.pbi
-build RM2020_Wandering_part4.pbi : link croutine.pbi event_groups.pbi heap_4.pbi list.pbi port.pbi queue.pbi
-build RM2020_Wandering_part5.pbi : link stream_buffer.pbi tasks.pbi timers.pbi
+build RM2020_Wandering_part0.pbi : link can.pbi freertos.pbi main.pbi stm32f4xx_hal_msp.pbi stm32f4xx_hal_timebase_tim.pbi stm32f4xx_it.pbi
+build RM2020_Wandering_part1.pbi : link system_stm32f4xx.pbi stm32f4xx_hal.pbi stm32f4xx_hal_can.pbi stm32f4xx_hal_cortex.pbi stm32f4xx_hal_dma.pbi stm32f4xx_hal_dma_ex.pbi
+build RM2020_Wandering_part2.pbi : link stm32f4xx_hal_exti.pbi stm32f4xx_hal_flash.pbi stm32f4xx_hal_flash_ex.pbi stm32f4xx_hal_flash_ramfunc.pbi stm32f4xx_hal_gpio.pbi stm32f4xx_hal_pwr.pbi
+build RM2020_Wandering_part3.pbi : link stm32f4xx_hal_pwr_ex.pbi stm32f4xx_hal_rcc.pbi stm32f4xx_hal_rcc_ex.pbi stm32f4xx_hal_tim.pbi stm32f4xx_hal_tim_ex.pbi stm32f4xx_hal_uart.pbi
+build RM2020_Wandering_part4.pbi : link cmsis_os.pbi croutine.pbi event_groups.pbi heap_4.pbi list.pbi port.pbi
+build RM2020_Wandering_part5.pbi : link queue.pbi stream_buffer.pbi tasks.pbi timers.pbi
 build RM2020_Wandering.pbd : link RM2020_Wandering_part0.pbi RM2020_Wandering_part1.pbi RM2020_Wandering_part2.pbi RM2020_Wandering_part3.pbi RM2020_Wandering_part4.pbi RM2020_Wandering_part5.pbi
 build RM2020_Wandering.pbw : browsedata RM2020_Wandering.pbd
 
