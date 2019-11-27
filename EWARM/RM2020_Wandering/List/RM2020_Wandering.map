@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  09:02:41
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  09:53:28
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -8,7 +8,7 @@
 #    Map file     =
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\List\RM2020_Wandering.map
 #    Command line =
-#        -f C:\Users\lenovo\AppData\Local\Temp\EWD071.tmp
+#        -f C:\Users\lenovo\AppData\Local\Temp\EW4F48.tmp
 #        (D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\can.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\cmsis_os.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\croutine.o
@@ -110,8 +110,8 @@ initialize by copy { rw };
   .text              ro code   0x800'19d6     0x2  stm32f4xx_hal_tim.o [1]
   .text              ro code   0x800'19d8    0x98  stm32f4xx_hal_cortex.o [1]
   .text              ro code   0x800'1a70   0x204  stm32f4xx_hal_gpio.o [1]
-  .text              ro code   0x800'1c74    0x14  memset.o [4]
-  .text              ro code   0x800'1c88   0x304  stm32f4xx_hal_dma.o [1]
+  .text              ro code   0x800'1c74   0x304  stm32f4xx_hal_dma.o [1]
+  .text              ro code   0x800'1f78    0x14  memset.o [4]
   .text              ro code   0x800'1f8c    0x34  stm32f4xx_hal.o [1]
   .text              ro code   0x800'1fc0   0x414  stm32f4xx_hal_uart.o [1]
   .text              ro code   0x800'23d4    0x18  ABImemcpy_small.o [4]
@@ -120,8 +120,8 @@ initialize by copy { rw };
   .text              ro code   0x800'24b0   0x2d0  stm32f4xx_hal_rcc.o [1]
   .text              ro code   0x800'2780   0x1dc  stm32f4xx_hal_rcc.o [1]
   .text              ro code   0x800'295c    0x10  stm32f4xx_hal.o [1]
-  .text              ro code   0x800'296c    0x12  ABImemset_small.o [4]
-  .text              ro code   0x800'2980     0xc  stm32f4xx_hal.o [1]
+  .text              ro code   0x800'296c     0xc  stm32f4xx_hal.o [1]
+  .text              ro code   0x800'2978    0x12  ABImemset_small.o [4]
   .text              ro code   0x800'298c    0x7c  stm32f4xx_hal_timebase_tim.o [1]
   .text              ro code   0x800'2a08     0x2  stm32f4xx_hal_uart.o [1]
   .text              ro code   0x800'2a0a     0x2  stm32f4xx_hal_uart.o [1]
@@ -392,18 +392,18 @@ DMA2_Stream1_IRQHandler
 DMA2_Stream2_IRQHandler
                          0x800'2d73     0x6  Code  Gb  stm32f4xx_it.o [1]
 DMA_CalcBaseAndBitshift
-                         0x800'1f5d    0x26  Code  Lc  stm32f4xx_hal_dma.o [1]
+                         0x800'1f49    0x26  Code  Lc  stm32f4xx_hal_dma.o [1]
 DMA_CalcBaseAndBitshift::flagBitshiftOffset
-                         0x800'1f84     0x8  Data  Lc  stm32f4xx_hal_dma.o [1]
+                         0x800'1f70     0x8  Data  Lc  stm32f4xx_hal_dma.o [1]
 DebugMon_Handler         0x800'2d3b     0x2  Code  Gb  stm32f4xx_it.o [1]
 Error_Handler            0x800'19b1     0x2  Code  Gb  main.o [1]
 HAL_CAN_IRQHandler       0x800'2b1d   0x1f8  Code  Gb  stm32f4xx_hal_can.o [1]
-HAL_DMA_Abort_IT         0x800'1d77    0x24  Code  Gb  stm32f4xx_hal_dma.o [1]
-HAL_DMA_IRQHandler       0x800'1d9b   0x188  Code  Gb  stm32f4xx_hal_dma.o [1]
-HAL_DMA_Init             0x800'1c89    0xee  Code  Gb  stm32f4xx_hal_dma.o [1]
+HAL_DMA_Abort_IT         0x800'1d63    0x24  Code  Gb  stm32f4xx_hal_dma.o [1]
+HAL_DMA_IRQHandler       0x800'1d87   0x188  Code  Gb  stm32f4xx_hal_dma.o [1]
+HAL_DMA_Init             0x800'1c75    0xee  Code  Gb  stm32f4xx_hal_dma.o [1]
 HAL_GPIO_Init            0x800'1a71   0x1c6  Code  Gb  stm32f4xx_hal_gpio.o [1]
 HAL_GPIO_WritePin        0x800'1c37     0x8  Code  Gb  stm32f4xx_hal_gpio.o [1]
-HAL_GetTick              0x800'2981     0xc  Code  Wk  stm32f4xx_hal.o [1]
+HAL_GetTick              0x800'296d     0xc  Code  Wk  stm32f4xx_hal.o [1]
 HAL_IncTick              0x800'295d    0x10  Code  Wk  stm32f4xx_hal.o [1]
 HAL_Init                 0x800'1f8d    0x30  Code  Gb  stm32f4xx_hal.o [1]
 HAL_InitTick             0x800'298d    0x6a  Code  Gb  stm32f4xx_hal_timebase_tim.o [1]
@@ -435,7 +435,7 @@ HAL_TIM_PeriodElapsedCallback
                          0x800'195f     0xe  Code  Gb  main.o [1]
 HAL_UART_IRQHandler      0x800'2043   0x14e  Code  Gb  stm32f4xx_hal_uart.o [1]
 HAL_UART_Init            0x800'1fc1    0x1e  Code  Gb  stm32f4xx_hal_uart.o [1]
-HAL_UART_MspInit         0x800'128d   0x202  Code  Gb  stm32f4xx_hal_msp.o [1]
+HAL_UART_MspInit         0x800'1281   0x202  Code  Gb  stm32f4xx_hal_msp.o [1]
 HardFault_Handler        0x800'2d33     0x2  Code  Gb  stm32f4xx_it.o [1]
 MemManage_Handler        0x800'2d35     0x2  Code  Gb  stm32f4xx_it.o [1]
 NMI_Handler              0x800'2d31     0x2  Code  Gb  stm32f4xx_it.o [1]
@@ -474,13 +474,13 @@ __iar_packbits_init_single3
                          0x800'2e19    0x38  Code  Gb  packbits_init_single.o [4]
 __iar_program_start      0x800'2f21          Code  Gb  cstartup_M.o [4]
 __iar_small_Memcpy       0x800'23d9          Code  Gb  ABImemcpy_small.o [4]
-__iar_small_Memset       0x800'296d          Code  Gb  ABImemset_small.o [4]
+__iar_small_Memset       0x800'2979          Code  Gb  ABImemset_small.o [4]
 __iar_small_Memset_word
-                         0x800'296d          Code  Gb  ABImemset_small.o [4]
+                         0x800'2979          Code  Gb  ABImemset_small.o [4]
 __iar_small_memcpy       0x800'23d5          Code  Gb  ABImemcpy_small.o [4]
 __iar_small_memcpy4      0x800'23d5          Code  Gb  ABImemcpy_small.o [4]
 __iar_small_memcpy8      0x800'23d5          Code  Gb  ABImemcpy_small.o [4]
-__iar_small_memset       0x800'296d          Code  Gb  ABImemset_small.o [4]
+__iar_small_memset       0x800'2979          Code  Gb  ABImemset_small.o [4]
 __iar_small_uldivmod     0x800'2a11          Code  Gb  I64DivMod_small.o [4]
 __iar_zero_init3         0x800'097b    0x3a  Code  Gb  zero_init3.o [4]
 __low_level_init         0x800'2edb     0x4  Code  Gb  low_level_init.o [2]
@@ -506,7 +506,7 @@ huart3                  0x2000'3f08    0x40  Data  Gb  main.o [1]
 huart6                  0x2000'3f48    0x40  Data  Gb  main.o [1]
 main                     0x800'153d   0x334  Code  Gb  main.o [1]
 makeFreeRtosPriority     0x800'23ed     0xc  Code  Lc  cmsis_os.o [1]
-memset                   0x800'1c75    0x14  Code  Gb  memset.o [4]
+memset                   0x800'1f79    0x14  Code  Gb  memset.o [4]
 osDelay                  0x800'2461     0xe  Code  Gb  cmsis_os.o [1]
 osKernelStart            0x800'23f9     0xa  Code  Gb  cmsis_os.o [1]
 osThreadCreate           0x800'2403    0x5e  Code  Gb  cmsis_os.o [1]

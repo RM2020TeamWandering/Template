@@ -110,20 +110,12 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan)
       __HAL_RCC_CAN1_CLK_ENABLE();
     }
   
-    __HAL_RCC_GPIOB_CLK_ENABLE();
     __HAL_RCC_GPIOD_CLK_ENABLE();
     /**CAN1 GPIO Configuration    
-    PB9     ------> CAN1_TX
+    PD1     ------> CAN1_TX
     PD0     ------> CAN1_RX 
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_9;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_1;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -153,10 +145,10 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan)
   
     __HAL_RCC_GPIOB_CLK_ENABLE();
     /**CAN2 GPIO Configuration    
-    PB6     ------> CAN2_TX
+    PB13     ------> CAN2_TX
     PB12     ------> CAN2_RX 
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_12;
+    GPIO_InitStruct.Pin = GPIO_PIN_12|GPIO_PIN_13;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
@@ -195,12 +187,10 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* hcan)
     }
   
     /**CAN1 GPIO Configuration    
-    PB9     ------> CAN1_TX
+    PD1     ------> CAN1_TX
     PD0     ------> CAN1_RX 
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_9);
-
-    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_0);
+    HAL_GPIO_DeInit(GPIOD, GPIO_PIN_0|GPIO_PIN_1);
 
     /* CAN1 interrupt DeInit */
     HAL_NVIC_DisableIRQ(CAN1_TX_IRQn);
@@ -222,10 +212,10 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* hcan)
     }
   
     /**CAN2 GPIO Configuration    
-    PB6     ------> CAN2_TX
+    PB13     ------> CAN2_TX
     PB12     ------> CAN2_RX 
     */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6|GPIO_PIN_12);
+    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_12|GPIO_PIN_13);
 
     /* CAN2 interrupt DeInit */
     HAL_NVIC_DisableIRQ(CAN2_TX_IRQn);
