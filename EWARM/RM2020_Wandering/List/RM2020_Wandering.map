@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  09:53:28
+# IAR ELF Linker V8.40.2.214/W32 for ARM                  27/Nov/2019  11:34:37
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -8,7 +8,7 @@
 #    Map file     =
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\List\RM2020_Wandering.map
 #    Command line =
-#        -f C:\Users\lenovo\AppData\Local\Temp\EW4F48.tmp
+#        -f C:\Users\lenovo\AppData\Local\Temp\EWEF0A.tmp
 #        (D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\can.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\cmsis_os.o
 #        D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj\croutine.o
@@ -244,33 +244,32 @@ initialize by copy { rw };
     .data            inited   0x2000'0018     0x4  system_stm32f4xx.o [1]
                             - 0x2000'001c    0x1c
 
-"P2", part 2 of 3:                         0x4368
+"P2", part 2 of 3:                         0x4390
   .bss               zero     0x2000'001c  0x3c18  heap_4.o [1]
   .bss               zero     0x2000'3c34   0x254  freertos.o [1]
   .bss               zero     0x2000'3e88   0x1c4  main.o [1]
   .bss               zero     0x2000'404c    0x9c  tasks.o [1]
   .bss               zero     0x2000'40e8    0x8c  tasks.o [1]
-  .bss               zero     0x2000'4174    0x60  main.o [1]
-  .bss               zero     0x2000'41d4    0x60  main.o [1]
-  .bss               zero     0x2000'4234    0x60  main.o [1]
-  .bss               zero     0x2000'4294    0x60  main.o [1]
-  .bss               zero     0x2000'42f4    0x40  stm32f4xx_hal_timebase_tim.o [1]
-  .bss               zero     0x2000'4334    0x28  can.o [1]
-  .bss               zero     0x2000'435c    0x28  can.o [1]
-                            - 0x2000'4384  0x4368
+  .bss               zero     0x2000'4174    0x78  can.o [1]
+  .bss               zero     0x2000'41ec    0x60  main.o [1]
+  .bss               zero     0x2000'424c    0x60  main.o [1]
+  .bss               zero     0x2000'42ac    0x60  main.o [1]
+  .bss               zero     0x2000'430c    0x60  main.o [1]
+  .bss               zero     0x2000'436c    0x40  stm32f4xx_hal_timebase_tim.o [1]
+                            - 0x2000'43ac  0x4390
 
 "P2", part 3 of 3:                          0x400
-  CSTACK                      0x2000'4388   0x400  <Block>
-    CSTACK           uninit   0x2000'4388   0x400  <Block tail>
-                            - 0x2000'4788   0x400
+  CSTACK                      0x2000'43b0   0x400  <Block>
+    CSTACK           uninit   0x2000'43b0   0x400  <Block tail>
+                            - 0x2000'47b0   0x400
 
 Unused ranges:
 
          From           To       Size
          ----           --       ----
    0x800'3072   0x81f'ffff  0x1f'cf8e
-  0x2000'4384  0x2000'4387        0x4
-  0x2000'4788  0x2002'ffff   0x2'b878
+  0x2000'43ac  0x2000'43af        0x4
+  0x2000'47b0  0x2002'ffff   0x2'b850
 
 
 *******************************************************************************
@@ -280,8 +279,8 @@ Unused ranges:
           Address      Size
           -------      ----
 Zero (__iar_zero_init3)
-    1 destination range, total size 0x4368:
-          0x2000'001c  0x4368
+    1 destination range, total size 0x4390:
+          0x2000'001c  0x4390
 
 Copy/packbits (__iar_packbits_init_single3)
     1 source range, total size 0x12 (64% of destination):
@@ -302,7 +301,7 @@ command line/config:
     Total:
 
 D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj: [1]
-    can.o                                                80
+    can.o                                               120
     cmsis_os.o                        130
     freertos.o                         20               596
     heap_4.o                          436            15'384
@@ -326,7 +325,7 @@ D:\RM2020_Wandering\EWARM\RM2020_Wandering\Obj: [1]
     system_stm32f4xx.o                 96       11        4
     tasks.o                         1'416               296
     -------------------------------------------------------
-    Total:                         11'716       38   17'284
+    Total:                         11'716       38   17'324
 
 dl7M_tlf.a: [2]
     exit.o                              4
@@ -362,7 +361,7 @@ shb_l.a: [5]
     Gaps                               20        2
     Linker created                              32    1'024
 -----------------------------------------------------------
-    Grand Total:                   12'330       72   18'308
+    Grand Total:                   12'330       72   18'348
 
 
 *******************************************************************************
@@ -381,8 +380,8 @@ CAN1_RX0_IRQHandler      0x800'2d4d     0x2  Code  Gb  stm32f4xx_it.o [1]
 CAN1_TX_IRQHandler       0x800'2d49     0x2  Code  Gb  stm32f4xx_it.o [1]
 CAN2_RX0_IRQHandler      0x800'2d7d     0x2  Code  Gb  stm32f4xx_it.o [1]
 CAN2_TX_IRQHandler       0x800'2d79     0x2  Code  Gb  stm32f4xx_it.o [1]
-CSTACK$$Base            0x2000'4388           --   Gb  - Linker created -
-CSTACK$$Limit           0x2000'4788           --   Gb  - Linker created -
+CSTACK$$Base            0x2000'43b0           --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'47b0           --   Gb  - Linker created -
 DMA1_Stream1_IRQHandler
                          0x800'2d3d     0x6  Code  Gb  stm32f4xx_it.o [1]
 DMA1_Stream5_IRQHandler
@@ -490,13 +489,14 @@ _exit                    0x800'2ee5          Code  Gb  cexit.o [4]
 _main                    0x800'2ed7          Code  Gb  cmain.o [4]
 defaultTaskHandle       0x2000'4048     0x4  Data  Gb  main.o [1]
 exit                     0x800'2edf     0x4  Code  Gb  exit.o [2]
-hcan1                   0x2000'4334    0x28  Data  Gb  can.o [1]
-hcan2                   0x2000'435c    0x28  Data  Gb  can.o [1]
-hdma_usart1_rx          0x2000'4174    0x60  Data  Gb  main.o [1]
-hdma_usart2_rx          0x2000'41d4    0x60  Data  Gb  main.o [1]
-hdma_usart3_rx          0x2000'4234    0x60  Data  Gb  main.o [1]
-hdma_usart6_rx          0x2000'4294    0x60  Data  Gb  main.o [1]
-htim1                   0x2000'42f4    0x40  Data  Gb  stm32f4xx_hal_timebase_tim.o [1]
+fcan                    0x2000'41c4    0x28  Data  Gb  can.o [1]
+hcan1                   0x2000'4174    0x28  Data  Gb  can.o [1]
+hcan2                   0x2000'419c    0x28  Data  Gb  can.o [1]
+hdma_usart1_rx          0x2000'41ec    0x60  Data  Gb  main.o [1]
+hdma_usart2_rx          0x2000'424c    0x60  Data  Gb  main.o [1]
+hdma_usart3_rx          0x2000'42ac    0x60  Data  Gb  main.o [1]
+hdma_usart6_rx          0x2000'430c    0x60  Data  Gb  main.o [1]
+htim1                   0x2000'436c    0x40  Data  Gb  stm32f4xx_hal_timebase_tim.o [1]
 htim3                   0x2000'3f88    0x40  Data  Gb  main.o [1]
 htim4                   0x2000'3fc8    0x40  Data  Gb  main.o [1]
 htim5                   0x2000'4008    0x40  Data  Gb  main.o [1]
@@ -593,7 +593,7 @@ xYieldPending           0x2000'40ac     0x4  Data  Lc  tasks.o [1]
 
   12'330 bytes of readonly  code memory
       72 bytes of readonly  data memory
-  18'308 bytes of readwrite data memory
+  18'348 bytes of readwrite data memory
 
 Errors: none
 Warnings: none
