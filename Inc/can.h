@@ -17,7 +17,6 @@ typedef enum{
 }CAN_Message_ID;
 
 /***电机反馈参数结构体***/
-#define FILTER_BUF_LEN 5
 typedef struct{
 	uint16_t angle;
     uint16_t speed;
@@ -26,8 +25,8 @@ typedef struct{
 }Motor_Info;
 
 /***API接口***/
-extern void My_CAN_Init();                                                     //初始化CAN
-extern void Set_Motor_Current(CAN_TxHeaderTypeDef* txcan);                     //设置电机电流值
-extern void Get_Motor_Info(CAN_RxHeaderTypeDef* rxcan, Motor_Info* info);      //获取电机反馈信息
+extern void My_CAN_Init();                                                          //初始化CAN
+extern void Set_Motor_Current(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4);  //设置电机电流值
+extern void Get_Motor_Info(Motor_Info* info);                                       //获取电机反馈信息
 
 #endif

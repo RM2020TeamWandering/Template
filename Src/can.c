@@ -6,10 +6,21 @@
 
 #include "main.h"
 
-CAN_HandleTypeDef hcan1;
-CAN_HandleTypeDef hcan2;
-CAN_FilterTypeDef fcan;
+/***私有变量***/
+CAN_HandleTypeDef       hcan1;
+CAN_HandleTypeDef       hcan2;
+CAN_FilterTypeDef       fcan;
+CAN_TxHeaderTypeDef*    TxHeader;
+CAN_RxHeaderTypeDef*    RxHeader;
+uint8_t                 TxData[8];
+uint8_t                 RxData[8];
+uint32_t                TxMailbox;
 
+/**
+  ******************************************************************************
+  *  函数功能实现
+  ******************************************************************************
+  */
 static void MX_CAN1_Config(void){
   hcan1.Instance = CAN1;
   hcan1.Init.Prescaler = 5;
@@ -211,6 +222,11 @@ void My_CAN_Init(){
     HAL_CAN_MspInit(&hcan2);
     HAL_CAN_MspDeInit(&hcan1);
     HAL_CAN_MspDeInit(&hcan2);
+    if (HAL_CAN_Start(&hcan1) != HAL_OK || HAL_CAN_Start(&hcan2) != HAL_OK)
+    {
+      /* Start Error */
+      Error_Handler();
+    }
 }
 
 
@@ -220,8 +236,34 @@ void My_CAN_Init(){
   *  功能：设置电机的电流值
   ******************************************************************************
   */
-void Set_Motor_Current(CAN_TxHeaderTypeDef* txcan){
-    ;
+void Set_Motor_Current(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4){
+    TxHeader->StdId = 0x200;
+    TxHeader->IDE = CAN_ID_STD;
+    TxHeader->RTR = CAN_RTR_DATA;
+    TxHeader->DLC = 8;
+    TxHeader->TransmitGlobalTime = ENABLE;
+    
+    //将电流值数据装入数组
+    //电流值用 2 个字节的有符号整型数表示
+    //一个完整的电流值需要使用 2 个数组元素表示
+    TxData[0] = iq1 >> 8;
+    TxData[1] = iq1;
+    TxData[2] = iq2 >> 8;
+    TxData[3] = iq2;
+    TxData[4] = iq3 >> 8;
+    TxData[5] = iq3;
+    TxData[6] = iq4 >> 8;
+    TxData[7] = iq4;
+  
+    //请求发送报文
+    if(HAL_CAN_AddTxMessage(&hcan1, TxHeader, TxData, &TxMailbox) != HAL_OK)
+    {
+        /* Transmission request Error */
+        Error_Handler();
+    }
+    
+    //等待发送完成
+    while(HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 3) {}
 }
 
 
@@ -235,26 +277,24 @@ void Set_Motor_Current(CAN_TxHeaderTypeDef* txcan){
   *      电机温度
   ******************************************************************************
   */
-void Get_Motor_Info(CAN_RxHeaderTypeDef* rxcan, Motor_Info* info){
-    uint8_t data[8];
-    
-    switch(rxcan->StdId){
+void Get_Motor_Info(Motor_Info* info){
+    switch(RxHeader->StdId){
         case M3508_Motor1_ID:
         case M3508_Motor2_ID:
         case M3508_Motor3_ID:
         case M3508_Motor4_ID:
         {
-            rxcan->IDE = CAN_ID_STD;
-            rxcan->RTR = CAN_RTR_DATA;
-            rxcan->DLC = 8;
+            RxHeader->IDE = CAN_ID_STD;
+            RxHeader->RTR = CAN_RTR_DATA;
+            RxHeader->DLC = 8;
         }
         break;
     }
     
-    HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, rxcan, data);
+    HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, RxHeader, RxData);
     
-    info->angle = data[0] << 8 | data[1];
-    info->speed = data[2] << 8 | data[3];
-    info->current = data[4] << 8 | data[5];
-    info->temperature = data[6];
+    info->angle = RxData[0] << 8 | RxData[1];
+    info->speed = RxData[2] << 8 | RxData[3];
+    info->current = RxData[4] << 8 | RxData[5];
+    info->temperature = RxData[6];
 }
