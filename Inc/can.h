@@ -18,15 +18,15 @@ typedef enum{
 
 /***电机反馈参数结构体***/
 typedef struct{
-	uint16_t angle;
-    uint16_t speed;
-    uint16_t current;
-    uint8_t  temperature;
+	uint16_t angle[4];
+    uint16_t speed[4];
+    uint16_t current[4];
+    uint8_t  temperature[4];
 }Motor_Info;
 
 /***API接口***/
 extern void My_CAN_Init();                                                          //初始化CAN
-extern void Set_Motor_Current(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4);  //设置电机电流值
+extern void Set_Motor_Current(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4);  //设置底盘电机电流值
 extern void Get_Motor_Info(Motor_Info* info);                                       //获取电机反馈信息
 
 #endif

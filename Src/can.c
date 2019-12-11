@@ -278,23 +278,41 @@ void Set_Motor_Current(int16_t iq1, int16_t iq2, int16_t iq3, int16_t iq4){
   ******************************************************************************
   */
 void Get_Motor_Info(Motor_Info* info){
-    switch(RxHeader->StdId){
-        case M3508_Motor1_ID:
-        case M3508_Motor2_ID:
-        case M3508_Motor3_ID:
-        case M3508_Motor4_ID:
-        {
-            RxHeader->IDE = CAN_ID_STD;
-            RxHeader->RTR = CAN_RTR_DATA;
-            RxHeader->DLC = 8;
-        }
-        break;
+    //开始接收报文
+    if(HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, RxHeader, RxData) != HAL_OK){
+        Error_Handler();
     }
     
-    HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, RxHeader, RxData);
-    
-    info->angle = RxData[0] << 8 | RxData[1];
-    info->speed = RxData[2] << 8 | RxData[3];
-    info->current = RxData[4] << 8 | RxData[5];
-    info->temperature = RxData[6];
+    //将报文装入结构体
+    if( (RxHeader->IDE == CAN_ID_STD)    && 
+        (RxHeader->RTR == CAN_RTR_DATA)  && 
+        (RxHeader->DLC == 8) )
+    {
+        switch(RxHeader->StdId){
+            case M3508_Motor1_ID:
+                info->angle[0]       = RxData[0] << 8 | RxData[1];
+                info->current[0]     = RxData[2] << 8 | RxData[3];
+                info->speed[0]       = RxData[4] << 8 | RxData[5];
+                info->temperature[0] = RxData[6];
+                break;
+            case M3508_Motor2_ID:
+                info->angle[1]       = RxData[0] << 8 | RxData[1];
+                info->current[1]     = RxData[2] << 8 | RxData[3];
+                info->speed[1]       = RxData[4] << 8 | RxData[5];
+                info->temperature[1] = RxData[6];
+                break;
+            case M3508_Motor3_ID:
+                info->angle[2]       = RxData[0] << 8 | RxData[1];
+                info->current[2]     = RxData[2] << 8 | RxData[3];
+                info->speed[2]       = RxData[4] << 8 | RxData[5];
+                info->temperature[2] = RxData[6];
+                break;
+            case M3508_Motor4_ID:
+                info->angle[3]       = RxData[0] << 8 | RxData[1];
+                info->current[3]     = RxData[2] << 8 | RxData[3];
+                info->speed[3]       = RxData[4] << 8 | RxData[5];
+                info->temperature[3] = RxData[6];
+                break;
+        }
+    }
 }
