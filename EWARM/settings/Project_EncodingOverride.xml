@@ -5,11 +5,19 @@
         <encoding>System</encoding>
     </override>
     <override>
+        <path>D:\RM2020_Wandering\Inc\pid.h</path>
+        <encoding>System</encoding>
+    </override>
+    <override>
         <path>D:\RM2020_Wandering\Src\can.c</path>
         <encoding>System</encoding>
     </override>
     <override>
         <path>D:\RM2020_Wandering\Src\main.c</path>
-        <encoding>UTF-8</encoding>
+        <encoding>System</encoding>
+    </override>
+    <override>
+        <path>D:\RM2020_Wandering\Src\pid.c</path>
+        <encoding>System</encoding>
     </override>
 </userOverrides>
