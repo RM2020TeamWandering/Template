@@ -1,4 +1,5 @@
 can.pbi: D:\RM2020_Wandering\Src\can.c \
+  D:\RM2020_Wandering\EWARM/../Inc\main.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal.h \
   D:\RM2020_Wandering\EWARM/../Inc\stm32f4xx_hal_conf.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_rcc.h \
@@ -36,4 +37,6 @@ can.pbi: D:\RM2020_Wandering\Src\can.c \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_tim.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
-  D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h
+  D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h \
+  D:\RM2020_Wandering\EWARM/../Inc/can.h \
+  D:\RM2020_Wandering\EWARM/../Inc/pid.h

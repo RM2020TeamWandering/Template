@@ -1,0 +1,21 @@
+[33mb916fee[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: commit: Update 2019/12/13
+[33m8b179ec[m HEAD@{1}: checkout: moving from dev to master
+[33m7f950a3[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m HEAD@{2}: commit: Update pid API
+[33me1704b6[m HEAD@{3}: commit: Initial pid API
+[33m8e7fd69[m HEAD@{4}: pull https://github.com/RM2020TeamWandering/Template.git dev: Fast-forward
+[33mb7722dd[m HEAD@{5}: commit: Update recieve function
+[33mae8b696[m HEAD@{6}: commit: Update transmission function
+[33mf4aee5e[m HEAD@{7}: reset: moving to f4aee5e
+[33mf4aee5e[m HEAD@{8}: commit: Update CAN API 2019.11.27
+[33m459c3a3[m HEAD@{9}: commit: Update CAN API
+[33mbeb48b0[m HEAD@{10}: commit: Hotfix
+[33m8b179ec[m HEAD@{11}: checkout: moving from master to dev
+[33m8b179ec[m HEAD@{12}: merge dev: Fast-forward
+[33mb7ef3c6[m HEAD@{13}: checkout: moving from dev to master
+[33m8b179ec[m HEAD@{14}: commit: Update can.c
+[33m3bbc852[m HEAD@{15}: pull https://github.com/RM2020TeamWandering/Template.git master: Fast-forward
+[33mb7ef3c6[m HEAD@{16}: checkout: moving from master to dev
+[33mb7ef3c6[m HEAD@{17}: pull https://github.com/RM2020TeamWandering/Template.git master: Merge made by the 'recursive' strategy.
+[33m9bd98af[m HEAD@{18}: commit: Update CAN API
+[33m393a128[m HEAD@{19}: commit: First commit
+[33mc236233[m HEAD@{20}: initial pull

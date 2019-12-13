@@ -49,4 +49,5 @@ freertos.pbi: D:\RM2020_Wandering\Src\freertos.c \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_tim.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
   D:\RM2020_Wandering\EWARM/../Drivers/STM32F4xx_HAL_Driver/Inc\stm32f4xx_hal_uart.h \
-  D:\RM2020_Wandering\EWARM/../Inc/can.h
+  D:\RM2020_Wandering\EWARM/../Inc/can.h \
+  D:\RM2020_Wandering\EWARM/../Inc/pid.h
